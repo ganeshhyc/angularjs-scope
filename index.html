@@ -63,12 +63,12 @@
                       </div>
                     </div>
                 </div>
-                <div class="result md-top-50 w-75" ng-show="pFlag">
+                <div class="result md-top-50 w-75" ng-show="pFlag" ng-cloak>
                     Hurray! PLAYER {{player_1_score>player_2_score?'ONE':'TWO'}} won!! <a style="cursor:pointer;color:red;" ng-click="reset()">reset!</a>
                 </div>
                 <div class="button-group">
-                    <button class="btn btn-success" ng-click="add_player1()" ng-disabled="pFlag">Player 1</button>
-                    <button class="btn btn-success" ng-click="add_player2()" ng-disabled="pFlag">Player 2</button>
+                    <button class="btn btn-success" ng-click="add_player1()" ng-disabled="pFlag" ng-cloak>Player 1</button>
+                    <button class="btn btn-success" ng-click="add_player2()" ng-disabled="pFlag" ng-cloak>Player 2</button>
                 </div>
             </div>
         </div>
