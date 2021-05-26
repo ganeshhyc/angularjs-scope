@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Bot</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+            .md-top-35{
+                margin-top:35px !important;
+            }
+            .md-top-50{
+                margin-top:50px !important;
+            }
+            .score-card{
+                background:lightcyan;
+                margin: auto;
+                border-radius:30px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+            .result{
+                margin: auto;
+                background:rgb(187, 245, 187);
+                border-radius:30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            .circle{
+                width: 100px;
+                height: 100px;
+                background-color: #fff !important;
+                border-radius: 50%;
+                font-size: 60px;
+                box-shadow: 1px 1px 1px 1px;
+            }
+            .button-group{
+                margin: auto;
+                border-radius:30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <div class="container md-top-35">
+                <h1 class="text-center">ScoreCard v1.0</h1><br>
+                <div class="card w-50 score-card border-0">
+                    <div class="card-body">
+                      <div class="container">
+                          <div class="row text-center">
+                            <div class="col-6">
+                                <div class="circle mx-auto ng-cloak" ng-class="(player_1_score>player_2_score)&&player_1_score>=5?'text-success':'text-secondary'">
+                                    {{player_1_score}}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="circle mx-auto ng-cloak" ng-class="(player_2_score>player_1_score)&&player_2_score>=5?'text-success':'text-secondary'">
+                                    {{player_2_score}}
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="result md-top-50 w-75" ng-show="pFlag">
+                    Hurray! PLAYER {{player_1_score>player_2_score?'ONE':'TWO'}} won!! <a style="cursor:pointer;color:red;" ng-click="reset()">reset!</a>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-success" ng-click="add_player1()" ng-disabled="pFlag">Player 1</button>
+                    <button class="btn btn-success" ng-click="add_player2()" ng-disabled="pFlag">Player 2</button>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
